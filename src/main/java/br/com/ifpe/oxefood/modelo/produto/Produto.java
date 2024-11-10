@@ -1,5 +1,7 @@
 package br.com.ifpe.oxefood.modelo.produto;
 
+import org.hibernate.annotations.SQLRestriction;
+
 import br.com.ifpe.oxefood.api.produto.ProdutoRequest.ProdutoRequestBuilder;
 import br.com.ifpe.oxefood.util.entity.EntidadeAuditavel;
 import jakarta.persistence.Column;
@@ -13,6 +15,7 @@ import lombok.Setter;
 
 @Entity  
 @Table(name = "Produto")
+@SQLRestriction("habilitado = true") 
 @Builder
 @Getter
 @Setter
@@ -34,12 +37,5 @@ public class Produto extends EntidadeAuditavel {
 
     @Column 
     private int tempoentregaMaximo;
-
-    public static ProdutoRequestBuilder builder() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'builder'");
-    }
-
-   
 
 }
