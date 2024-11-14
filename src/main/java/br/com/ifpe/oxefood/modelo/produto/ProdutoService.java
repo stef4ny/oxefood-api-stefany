@@ -3,9 +3,7 @@ package br.com.ifpe.oxefood.modelo.produto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.ifpe.oxefood.api.produto.ProdutoRequest.ProdutoRequestBuilder;
-import br.com.ifpe.oxefood.modelo.cliente.Cliente;
-import br.com.ifpe.oxefood.modelo.cliente.ClienteRepository;
+//import br.com.ifpe.oxefood.api.produto.ProdutoRequest.ProdutoRequestBuilder;
 import jakarta.transaction.Transactional;
 
 @Service

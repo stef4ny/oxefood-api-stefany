@@ -3,7 +3,7 @@ package br.com.ifpe.oxefood.modelo.entregador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.ifpe.oxefood.modelo.entregador.Entregador;
+//import br.com.ifpe.oxefood.modelo.entregador.Entregador;
 import jakarta.transaction.Transactional;
 
 @Service

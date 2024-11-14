@@ -1,6 +1,6 @@
 package br.com.ifpe.oxefood.api.produto;
 
-import br.com.ifpe.oxefood.modelo.cliente.Cliente;
+
 import br.com.ifpe.oxefood.modelo.produto.Produto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProdutoRequest {
+
+    private String codigo;
 
     private String titulo;
 
