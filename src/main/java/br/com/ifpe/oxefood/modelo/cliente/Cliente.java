@@ -24,13 +24,13 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Cliente extends EntidadeAuditavel  {
 
-    @Column // vai criar uma coluna para a tabela criar no @table
+    @Column (nullable = false, length = 100) // vai criar uma coluna para a tabela criar no @table
    private String nome;
 
    @Column
    private LocalDate dataNascimento;
 
-   @Column
+   @Column(unique = true)
    private String cpf;
 
    @Column
