@@ -21,6 +21,10 @@ public class ProdutoService {
 	    throw new ProdutoException(ProdutoException.MSG_VALOR_MINIMO_PRODUTO);
 	}
 
+    if (produto.getValorUnitario() < 100) {
+	    throw new ProdutoException(ProdutoException.MSG_VALOR_MAXIMO_PRODUTO);
+	}
+
 
        produto.setHabilitado(Boolean.TRUE);
        return repository.save(produto);
@@ -39,6 +43,7 @@ public class ProdutoService {
    public void update(Long id, Produto produtoAlterado) {
 
       Produto produto = repository.findById(id).get();
+      produto.setCategoria(produtoAlterado.getCategoria());
       produto.setCodigo(produtoAlterado.getCodigo());
       produto.setTitulo(produtoAlterado.getTitulo());
       produto.setDescricao(produtoAlterado.getDescricao());
