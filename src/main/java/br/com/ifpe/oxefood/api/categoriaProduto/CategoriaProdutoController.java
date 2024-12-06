@@ -19,7 +19,7 @@ import br.com.ifpe.oxefood.modelo.categoriaProduto.CategoriaProduto;
 import br.com.ifpe.oxefood.modelo.categoriaProduto.CategoriaProdutoService;
 
 @RestController
-@RequestMapping("/api/categoriaProduto")
+@RequestMapping("/api/categoriaproduto")
 @CrossOrigin
 public class CategoriaProdutoController {
   

@@ -14,9 +14,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity  
+@Entity
 @Table(name = "Produto")
-@SQLRestriction("habilitado = true") 
+@SQLRestriction("habilitado = true")
 @Builder
 @Getter
 @Setter
@@ -24,25 +24,25 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Produto extends EntidadeAuditavel {
 
-     @ManyToOne
-     private CategoriaProduto categoria;
+    @ManyToOne
+    private CategoriaProduto categoria;
 
-    @Column (nullable = false, length = 50)
+    @Column(nullable = false, length = 50)
     private String codigo;
 
-    @Column  (nullable = false)
+    @Column(nullable = false)
     private String titulo;
 
     @Column
     private String descricao;
 
-    @Column 
+    @Column
     private Double valorUnitario;
 
-    @Column 
+    @Column
     private int tempoEntregaMinimo;
 
-    @Column 
+    @Column
     private int tempoentregaMaximo;
 
 }
