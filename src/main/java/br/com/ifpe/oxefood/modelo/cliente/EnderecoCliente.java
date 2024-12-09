@@ -6,11 +6,13 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.hibernate.annotations.SQLRestriction;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.com.ifpe.oxefood.util.entity.EntidadeAuditavel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,27 +28,32 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cliente extends EntidadeAuditavel  {
-
-     @OneToMany(mappedBy = "cliente", orphanRemoval = true, fetch = FetchType.EAGER) //orphanRemoval: todas vez que eu remover um cliente os endereço também serão removido
-   private List<EnderecoCliente> enderecos; //FetchType.EAGER: trás os dados de endereço do cliente
-   //FetchType.LAZY: não trás os dados do cliente(por padrão é LAZY)
-
-
-   @Column (nullable = false, length = 100) // vai criar uma coluna para a tabela criar no @table
-   private String nome;
+public class EnderecoCliente extends EntidadeAuditavel {
+   @JsonIgnore //exibir os dados da tabela cliente se não colocado
+   @ManyToOne
+   private Cliente cliente;
 
    @Column
-   private LocalDate dataNascimento;
-
-   @Column(unique = true)
-   private String cpf;
+   private String rua;
 
    @Column
-   private String foneCelular;
+   private String numero;
 
    @Column
-   private String foneFixo;
+   private String bairro;
+
+   @Column
+   private String cep;
+
+   @Column
+   private String cidade;
+
+   @Column
+   private String estado;
+
+   @Column
+   private String complemento;
+  
+
 
 }
-
