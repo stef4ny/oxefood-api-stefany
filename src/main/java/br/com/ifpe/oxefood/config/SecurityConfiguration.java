@@ -40,6 +40,7 @@ public class SecurityConfiguration {
             .authorizeHttpRequests(authorize -> authorize
 
                 .requestMatchers(HttpMethod.POST, "/api/cliente").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/cliente/*").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/auth").permitAll()
 
                 .requestMatchers(HttpMethod.GET, "/api-docs/*").permitAll()
