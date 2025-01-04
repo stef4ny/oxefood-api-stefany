@@ -39,9 +39,8 @@ public class Cliente extends EntidadeAuditavel  {
    private Usuario usuario;
 
 
-     @OneToMany(mappedBy = "cliente", orphanRemoval = true, fetch = FetchType.EAGER)//orphanRemoval: todas vez que eu remover um cliente os endereço também serão removido
-      @Fetch(FetchMode.SUBSELECT)
-      
+   @OneToMany(mappedBy = "cliente", orphanRemoval = true, fetch = FetchType.EAGER)//orphanRemoval: todas vez que eu remover um cliente os endereço também serão removido
+   @Fetch(FetchMode.SUBSELECT)
    private List<EnderecoCliente> enderecos; //FetchType.EAGER: trás os dados de endereço do cliente
    //FetchType.LAZY: não trás os dados do cliente(por padrão é LAZY)
 
@@ -49,7 +48,7 @@ public class Cliente extends EntidadeAuditavel  {
    @Column ( nullable= false, length = 100) // vai criar uma coluna para a tabela criar no @table
    private String nome;
 
-   @Column
+   @Column (nullable = false)
    private LocalDate dataNascimento;
 
    @Column(unique = true)

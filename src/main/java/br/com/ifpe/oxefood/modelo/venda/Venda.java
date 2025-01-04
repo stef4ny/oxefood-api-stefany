@@ -1,7 +1,5 @@
 package br.com.ifpe.oxefood.modelo.venda;
 
-
-
 import java.time.LocalDate;
 import org.hibernate.annotations.SQLRestriction;
 import br.com.ifpe.oxefood.util.entity.EntidadeAuditavel;
@@ -14,30 +12,30 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity  //ele torna a classe em uma entidade manipulada pela JPA
-@Table(name = "Venda") // a partir dessa classe ele vai virar uma tabela no banco
-@SQLRestriction("habilitado = true") // ela vai acresentar um glasula (exlusão logica)
+
+@Entity
+@Table(name = "venda")
+@SQLRestriction("habilitado = true")
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Venda  extends EntidadeAuditavel {
-
-    @Column 
+public class Venda extends EntidadeAuditavel  {
+    
+   @Column
    private String cliente;
 
    @Column
    private String produto;
 
    @Column
-   private String statusVenda ;
+   private String statusVenda;
 
    @Column
    private LocalDate dataVenda;
 
-   @Column 
-
+   @Column
    private Double valorTotal;
 
    @Column
@@ -45,8 +43,4 @@ public class Venda  extends EntidadeAuditavel {
 
    @Column
    private Boolean retiradaEmLoja;
-
-
-
-
 }

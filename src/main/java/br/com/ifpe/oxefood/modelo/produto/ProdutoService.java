@@ -59,7 +59,6 @@ public class ProdutoService {
 
       Produto produto = repository.findById(id).get();
       produto.setHabilitado(Boolean.FALSE);
-
       repository.save(produto);
   }
 

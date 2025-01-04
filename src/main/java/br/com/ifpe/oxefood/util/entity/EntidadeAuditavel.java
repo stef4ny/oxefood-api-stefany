@@ -23,23 +23,22 @@ import lombok.Setter;
 public abstract class EntidadeAuditavel extends EntidadeNegocio {
     @JsonIgnore // não será enivada para a consultas, nunca vão ser retornados 
     @Version // vai poder ver quantas versão foram realizadas
-
     private Long versao;
+
     @JsonIgnore
     @CreatedDate
-
     private LocalDate dataCriacao;
+
     @JsonIgnore
     @LastModifiedDate // são anotações de auditoria 
-
     private LocalDate dataUltimaModificacao;
+
     @JsonIgnore
     @Column
-
     private Long criadoPor; // Id do usuário que o criou
+
     @JsonIgnore
     @Column
-
     private Long ultimaModificacaoPor; // Id do usuário que fez a última alteração
 
 }

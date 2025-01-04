@@ -6,11 +6,11 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.br.CPF;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-
 import br.com.ifpe.oxefood.modelo.entregador.Entregador;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,67 +21,75 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EntregadorRequest {
-  
-  @NotNull(message = "O Nome é de preenchimento obrigatório")
-   @NotEmpty(message = "O Nome é de preenchimento obrigatório")
-   @Length(max = 100, message = "O Nome deverá ter no máximo {max} caracteres")
-  private String nome;
 
-  @NotBlank(message = "O CPF é de preenchimento obrigatório")
-   @CPF
-  private String cpf;
+@NotNull(message = "O Nome é de preenchimento obrigatório")
+@NotEmpty(message = "O Nome é de preenchimento obrigatório")
+@Length(max = 100, message = "O Nome deverá ter no máximo {max} caracteres")
+private String nome;
 
-  private String rg;
+@NotBlank(message = "O CPF é de preenchimento obrigatório")
+@CPF
+private String cpf;
 
-   @JsonFormat(pattern = "dd/MM/yyyy")
-  private LocalDate dataNascimento;
+@NotBlank(message = "O RG é de preenchimento obrigatório")
+private String rg;
 
-  @Length(min = 8, max = 20, message = "O campo Fone tem que ter entre {min} e {max} caracteres")
-  @NotBlank()
-  private String foneCelular;
+@Past
+@JsonFormat(pattern = "dd/MM/yyyy")
+private LocalDate dataNascimento;
 
-  private  String foneFixo;
+@Length(min = 8, max = 20, message = "O campo Fone Celular tem que ter entre {min} e {max} caracteres")
+private String foneCelular;
 
-  private int qtEntregadorRealizadas;
+@Length(min = 8, max = 20, message = "O campo Fone Fixo tem que ter entre {min} e {max} caracteres")
+private String foneFixo;
 
-  private double valorFrete;
+private Integer qtEntregasRealizadas;
 
-  private String enderecoRua; 
+private Double valorFrete;
 
-  private String enderecoCompletomento;
+@NotBlank(message = "A rua é de preenchimento obrigatório")
+private String enderecoRua;
 
-  private String enderecoNumero;
 
-  private String enderecoBairro;
+private String enderecoComplemento;
 
-  private String enderecoCidade;
+@NotBlank(message = "O número da resdência é de preenchimento obrigatório")
+private String enderecoNumero;
 
-  private String enderecoCep;
+@NotBlank(message = "O Bairro é de preenchimento obrigatório")
+private String enderecoBairro;
 
-  private String enderecoUf;
+@NotBlank(message = "A Cidade é de preenchimento obrigatório")
+private String enderecoCidade;
 
-  private Boolean ativo; 
+@NotBlank(message = "O CEP é de preenchimento obrigatório")
+private String enderecoCep;
 
-  public Entregador build() {
+@NotBlank(message = "O Estado é de preenchimento obrigatório")
+private String enderecoUf;
 
-       return Entregador.builder()
-           .nome(nome)
-           .cpf(cpf)
-           .rg(rg)
-           .dataNascimento(dataNascimento)
-           .foneCelular(foneCelular)
-           .foneFixo(foneFixo)
-           .qtEntregadorRealizadas(qtEntregadorRealizadas)
-           .valorFrete(valorFrete)
-           .enderecoRua(enderecoRua)
-           .enderecoCompletomento(enderecoCompletomento)
-           .enderecoNumero(enderecoNumero)
-           .enderecoBairro(enderecoBairro)
-           .enderecoCidade(enderecoCidade)
-           .enderecoCep(enderecoCep)
-           .enderecoUf(enderecoUf)
-           .ativo(ativo)
-           .build();
-   }
-  
+private Boolean ativo;
+
+public Entregador build() {
+
+        return Entregador.builder()
+                .nome(nome)
+                .cpf(cpf)
+                .rg(rg)
+                .dataNascimento(dataNascimento)
+                .foneCelular(foneCelular)
+                .foneFixo(foneFixo)
+                .qtEntregasRealizadas(qtEntregasRealizadas)
+                .valorFrete(valorFrete)
+                .enderecoRua(enderecoRua)
+                .enderecoComplemento(enderecoComplemento)
+                .enderecoNumero(enderecoNumero)
+                .enderecoBairro(enderecoBairro)
+                .enderecoCidade(enderecoCidade)
+                .enderecoCep(enderecoCep)
+                .enderecoUf(enderecoUf)
+                .ativo(ativo)
+                .build();
+    }
 }

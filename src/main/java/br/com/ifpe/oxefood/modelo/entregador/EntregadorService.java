@@ -42,10 +42,10 @@ public class EntregadorService {
       entregador.setDataNascimento(entregadorAlterado.getDataNascimento());
       entregador.setFoneCelular(entregadorAlterado.getFoneCelular());
       entregador.setFoneFixo(entregadorAlterado.getFoneFixo());
-	  entregador.setQtEntregadorRealizadas(entregadorAlterado.getQtEntregadorRealizadas());
+	  entregador.setQtEntregasRealizadas(entregadorAlterado.getQtEntregasRealizadas());
       entregador.setValorFrete(entregadorAlterado.getValorFrete());
       entregador.setEnderecoRua(entregadorAlterado.getEnderecoRua());
-      entregador.setEnderecoCompletomento(entregadorAlterado.getEnderecoCompletomento());
+      entregador.setEnderecoComplemento(entregadorAlterado.getEnderecoComplemento());
       entregador.setEnderecoNumero(entregadorAlterado.getEnderecoNumero());
       entregador.setEnderecoBairro(entregadorAlterado.getEnderecoBairro());
       entregador.setEnderecoCidade(entregadorAlterado.getEnderecoCidade());
