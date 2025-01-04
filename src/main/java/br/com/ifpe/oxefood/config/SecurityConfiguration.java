@@ -1,6 +1,9 @@
 package br.com.ifpe.oxefood.config;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f93c719710ca7ddd6725eca28cc7739e1a4698df
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,6 +20,10 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+<<<<<<< HEAD
+=======
+import br.com.ifpe.oxefood.modelo.acesso.Usuario;
+>>>>>>> f93c719710ca7ddd6725eca28cc7739e1a4698df
 import br.com.ifpe.oxefood.modelo.seguranca.JwtAuthenticationFilter;
 
 @Configuration
@@ -31,7 +38,11 @@ public class SecurityConfiguration {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
     }
 
+<<<<<<< HEAD
     @Bean
+=======
+    @Bean //liberar as rotas 
+>>>>>>> f93c719710ca7ddd6725eca28cc7739e1a4698df
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
@@ -40,6 +51,10 @@ public class SecurityConfiguration {
             .authorizeHttpRequests(authorize -> authorize
 
                 .requestMatchers(HttpMethod.POST, "/api/cliente").permitAll()
+<<<<<<< HEAD
+=======
+                .requestMatchers(HttpMethod.POST, "/api/cliente/*").permitAll()
+>>>>>>> f93c719710ca7ddd6725eca28cc7739e1a4698df
                 .requestMatchers(HttpMethod.POST, "/api/auth").permitAll()
 
                 .requestMatchers(HttpMethod.GET, "/api-docs/*").permitAll()
@@ -71,3 +86,8 @@ public class SecurityConfiguration {
         return source;
     }
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> f93c719710ca7ddd6725eca28cc7739e1a4698df

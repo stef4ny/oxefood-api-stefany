@@ -1,6 +1,5 @@
 package br.com.ifpe.oxefood.api.acesso;
 
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,3 +43,4 @@ public class AuthenticationController {
         return loginResponse;
     }    
 }
+

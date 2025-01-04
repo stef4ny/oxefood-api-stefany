@@ -28,6 +28,7 @@ public class UsuarioService implements UserDetailsService {
         this.repository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
+
     public Usuario authenticate(String username, String password) {
 
         authenticationManager.authenticate(
@@ -56,4 +57,5 @@ public class UsuarioService implements UserDetailsService {
         return repository.save(user);
     }
 }
+
 

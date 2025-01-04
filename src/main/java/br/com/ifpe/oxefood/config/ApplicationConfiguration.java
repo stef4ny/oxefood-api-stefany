@@ -52,4 +52,9 @@ public class ApplicationConfiguration {
         return authProvider;
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> f93c719710ca7ddd6725eca28cc7739e1a4698df

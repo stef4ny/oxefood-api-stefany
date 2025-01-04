@@ -1,6 +1,5 @@
 package br.com.ifpe.oxefood.modelo.cliente;
 
-
 import org.hibernate.annotations.SQLRestriction;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

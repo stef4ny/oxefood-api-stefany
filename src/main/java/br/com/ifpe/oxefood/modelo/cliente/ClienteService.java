@@ -9,7 +9,11 @@ import org.springframework.stereotype.Service;
 import br.com.ifpe.oxefood.modelo.acesso.Perfil;
 import br.com.ifpe.oxefood.modelo.acesso.PerfilRepository;
 import br.com.ifpe.oxefood.modelo.acesso.UsuarioService;
+
 import br.com.ifpe.oxefood.util.exception.ClienteException;
+
+import jakarta.transaction.Transactional;
+
 
 @Service
 public class ClienteService {
@@ -42,6 +46,7 @@ public class ClienteService {
         cliente.setHabilitado(Boolean.TRUE);
         return repository.save(cliente);
     }
+
 
     public List<Cliente> listarTodos() {
         return repository.findAll();

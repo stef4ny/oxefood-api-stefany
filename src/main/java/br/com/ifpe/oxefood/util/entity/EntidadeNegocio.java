@@ -18,6 +18,12 @@ import lombok.Setter;
 @EqualsAndHashCode(of = { "id" })
 @MappedSuperclass
 public abstract class EntidadeNegocio implements Serializable {
+
+    public static final String ROLE_CLIENTE = "CLIENTE";
+    public static final String ROLE_FUNCIONARIO_ADMIN = "ROLE_FUNCIONARIO_ADMIN"; // READ, DELETE, WRITE, UPDATE.
+    public static final String ROLE_FUNCIONARIO_USER = "ROLE_FUNCIONARIO_USER"; // READ, WRITE, UPDATE.
+ 
+
     @Id // para definir que esse campo é a chave primary key
     @GeneratedValue(strategy = GenerationType.SEQUENCE) // inplementar o novo id no banco
     private Long id;
