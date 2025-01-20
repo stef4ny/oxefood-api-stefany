@@ -1,5 +1,6 @@
 package br.com.ifpe.oxefood.modelo.cliente;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.transaction.Transactional;
@@ -10,10 +11,10 @@ import br.com.ifpe.oxefood.modelo.acesso.Perfil;
 import br.com.ifpe.oxefood.modelo.acesso.PerfilRepository;
 import br.com.ifpe.oxefood.modelo.acesso.Usuario;
 import br.com.ifpe.oxefood.modelo.acesso.UsuarioService;
-
+import br.com.ifpe.oxefood.modelo.mensagens.EmailService;
 import br.com.ifpe.oxefood.util.exception.ClienteException;
 
-import jakarta.transaction.Transactional;
+//import jakarta.transaction.Transactional;
 
 
 @Service
@@ -31,6 +32,10 @@ public class ClienteService {
     @Autowired
     private PerfilRepository perfilUsuarioRepository;
 
+      @Autowired
+    private EmailService emailService;
+
+
     @Transactional
     public Cliente save(Cliente cliente, Usuario usuarioLogado) {
 
@@ -44,9 +49,17 @@ public class ClienteService {
         if (!cliente.getFoneCelular().startsWith("(81)") || !cliente.getFoneFixo().startsWith("(81)")) {
             throw new ClienteException(ClienteException.MSG_PREFIXO_CLIENTE);
         }
-        cliente.setHabilitado(Boolean.TRUE);
-        cliente.setCriadoPor(usuarioLogado);
-        return repository.save(cliente);
+          cliente.setHabilitado(Boolean.TRUE);
+       cliente.setVersao(1L);
+       cliente.setDataCriacao(LocalDate.now());
+       Cliente clienteSalvo = repository.save(cliente);
+
+       emailService.enviarEmailConfirmacaoCadastroCliente(clienteSalvo);
+
+       return clienteSalvo;
+
+
+       
     }
 
 
