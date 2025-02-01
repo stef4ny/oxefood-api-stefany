@@ -2,7 +2,6 @@ package br.com.ifpe.oxefood.api.produto;
 
 
 import org.hibernate.validator.constraints.Length;
-
 import br.com.ifpe.oxefood.modelo.produto.Produto;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -14,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class ProdutoRequest {
     
     private Long idCategoria;

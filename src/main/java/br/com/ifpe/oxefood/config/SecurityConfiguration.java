@@ -16,7 +16,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import br.com.ifpe.oxefood.modelo.acesso.Perfil;
+//import br.com.ifpe.oxefood.modelo.acesso.Perfil;
 //import br.com.ifpe.oxefood.modelo.acesso.Usuario;
 
 import br.com.ifpe.oxefood.modelo.seguranca.JwtAuthenticationFilter;
@@ -45,11 +45,13 @@ public class SecurityConfiguration {
 
                         .requestMatchers(HttpMethod.POST, "/api/cliente").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/funcionario").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/cliente/*").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/produto").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/categoriaproduto").permitAll()
+
 
                         .requestMatchers(HttpMethod.POST, "/api/auth").permitAll()
 
-                        .requestMatchers(HttpMethod.GET, "/api/produto/").hasAnyAuthority(
+                        /*.requestMatchers(HttpMethod.GET, "/api/produto/").hasAnyAuthority(
                                 Perfil.ROLE_CLIENTE,
                                 Perfil.ROLE_FUNCIONARIO_ADMIN,
                                 Perfil.ROLE_FUNCIONARIO_USER) // Consulta de produto
@@ -63,7 +65,7 @@ public class SecurityConfiguration {
                                 Perfil.ROLE_FUNCIONARIO_USER) // Alteração de produto
 
                         .requestMatchers(HttpMethod.DELETE, "/api/produto/*").hasAnyAuthority(
-                                Perfil.ROLE_FUNCIONARIO_ADMIN) // Exclusão de produto
+                                Perfil.ROLE_FUNCIONARIO_ADMIN) // Exclusão de produto*/
 
                         .requestMatchers(HttpMethod.GET, "/api-docs/*").permitAll()
                         .requestMatchers(HttpMethod.GET, "/swagger-ui/*").permitAll()

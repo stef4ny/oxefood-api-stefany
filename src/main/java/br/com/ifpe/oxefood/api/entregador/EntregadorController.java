@@ -18,15 +18,29 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.ifpe.oxefood.modelo.entregador.Entregador;
 import br.com.ifpe.oxefood.modelo.entregador.EntregadorService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 
 @RestController
 @RequestMapping("/api/entregador")
 @CrossOrigin
+
+@Tag(
+    name = "API Cliente",
+    description = "API responsável pelos servidos de entregador no sistema"
+)
 public class EntregadorController {
   
    @Autowired
    private EntregadorService EntregadorService;
+
+
+     @Operation(
+       summary = "Serviço responsável por salvar um entregador no sistema.",
+       description = "Exemplo de descrição de um endpoint responsável por inserir um entregador no sistema."
+   )
+
 
    @PostMapping
    public ResponseEntity<Entregador> save(@RequestBody EntregadorRequest request) {

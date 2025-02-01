@@ -56,13 +56,13 @@ public class EntregadorService {
       repository.save(entregador);
   }
 
-   @Transactional // o transactional faz um collback, o transactional ou ele faz tudo ou faz nada mas isso ele só confirma no final.
+   @Transactional // o transactional faz um collback, o transactional ou ele faz tudo ou faz nada (isso ele só confirma no final.)
   public void delete(Long id) {
 
        Entregador entregador = repository.findById(id).get();
       entregador.setHabilitado(Boolean.FALSE);
 
-      repository.save(entregador); // se fosse fazer uma exclusão fisica usaria o delete, mas como não usar o save
+      repository.save(entregador); 
   }
 
 

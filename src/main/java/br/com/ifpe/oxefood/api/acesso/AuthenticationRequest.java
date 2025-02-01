@@ -1,7 +1,7 @@
 package br.com.ifpe.oxefood.api.acesso;
 
 
-import java.io.Serializable;
+//import java.io.Serializable;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
